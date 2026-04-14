@@ -1,0 +1,14 @@
+# Build artifacts
+*.o
+*.a
+objects/
+pipex
+
+# Norminette
+.norminette.log
+
+# Editor
+.vscode/
+
+# macOS
+.DS_Store

@@ -1,0 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   my_prints.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/16 21:11:03 by lahermaciel       #+#    #+#             */
+/*   Updated: 2025/01/23 16:35:08 by lahermaciel      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "pipex.h"
+
+/**
+ * @brief function used to end the program if something happens
+ * @param error -1 to print a error message used to write errors -2 to simple
+ *  messages to STDERR_FILENO 1 to write a normal message to STDOUT 0 to run the
+ *  functions without printing any message, basically end the code without any
+ *  errors.
+ * @param message message to print
+ * @param piper struct with all the programs basic or main info
+ */
+void	exit_pipex(int error, char *message)
+{
+	int	out;
+
+	out = 1;
+	if (error == -1)
+		ft_fdprintf(STDERR_FILENO, RED"%s"DEFAULT_COLOR": %s\n",
+			message, strerror(errno));
+	if (error == -2)
+		ft_fdprintf(STDERR_FILENO, "%s\n", message);
+	if (error == -3)
+		ft_fdprintf(STDERR_FILENO, "pipex: %s: %s\n",
+			strerror(errno), message);
+	if (error == -4)
+		ft_fdprintf(STDERR_FILENO,
+			"pipex: command not found: %s\n", message);
+	if (error == 1)
+		ft_printf("%s\n", message);
+	if (error == 0 || error == 1)
+		out = 0;
+	exit(out);
+}
+
