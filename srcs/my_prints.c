@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 21:11:03 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/01/23 16:35:08 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2026/04/15 20:47:02 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,3 @@ void	exit_pipex(int error, char *message)
 		out = 0;
 	exit(out);
 }
-
